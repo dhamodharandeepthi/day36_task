@@ -1,17 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const mongoose = require("mongoose");
-
 require("dotenv").config();
 const PORT = process.env.PORT;
-
-mongoose
-  .connect(process.env.DB_URL, {})
-  .then(() => {
-    console.log("DB connected");
-  })
-  .catch((error) => console.log(error));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
